@@ -1,0 +1,62 @@
+<div class = "main-div">
+    <form action="/workout/new" onsubmit="return validateForm()" method="POST">
+        <div class="card">
+            <div class="card-header"><h5>Type of Exercise</h5></div>
+            <div class="card-body">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input exerciseSelector" name="type" id="exerciseShoulder" value="1">
+                    <label class="form-check-label" for="exerciseShoulder">Shoulders</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input exerciseSelector" name="type" id="exerciseBack" value="2">
+                    <label class="form-check-label" for="exerciseBack">Back</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input exerciseSelector" name="type" id="exerciseBiceps" value="4">
+                    <label class="form-check-label" for="exerciseBiceps">Biceps</label>
+                </div>
+                <input type="hidden" id="exerciseSum" name="exerciseSum" value="" />
+                <div class="error-msg" id="exerciseError"></div>
+            </div>
+        </div>
+
+        <div class="card" style="width:30rem;">
+            <div class="card-header"><h5>Workout Intensity</h5></div>
+            <div class="card-body" id="intensity-form">
+                <script>
+                    intensityForm = document.getElementById("intensity-form");
+                    var content = "";
+                    for (var i=1; i <= 10; i++) {
+                        content += `
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="intensity" id="intensity${i}" value="${i}" checked>
+                                <label class="form-check-label" for="intensity${i}">${i}</label>
+                            </div>`
+                    }
+                    intensityForm.innerHTML = content;
+                </script>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button type="submit" class="btn btn-lg btn-outline-dark">Submit</button>
+            <button type="button" class="btn btn-lg disabled">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        var bitsum = 0
+        const checkboxes = document.querySelectorAll(".exerciseSelector");
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) bitsum += parseInt(checkboxes[i].value);
+        }        
+        if (bitsum == 0) {
+            document.querySelector("#exerciseError").innerHTML = "<hr>Invalid input: choose at least one exercise option!";
+            return false;
+        } else {
+            document.querySelector("#exerciseSum").setAttribute("value", bitsum);
+        }
+    }
+</script>

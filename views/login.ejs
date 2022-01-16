@@ -1,0 +1,35 @@
+<div class="main-div">
+
+  <h1> Login </h1>
+  <hr>
+  <%- include ('./partials/messages') %>
+  <form action="/users/login" method="POST">
+  <div class="row">
+    <div class="col-4">
+      <label for="email">Email</label>
+    </div>
+    <div class="col">
+    <input
+    type="email"
+    name="email"
+    placeholder="Enter Email"
+    />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <label for="password">Password</label>
+    </div>
+    <div class="col">
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter Password"
+      />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-outline-primary btn-lg">Login</button>
+    
+  </form>
+
+</div>

@@ -1,0 +1,52 @@
+<div class="main-div">
+
+<h1>Welcome! <%= user.name %> </h1>
+<p></p>
+<a class="btn btn-outline-primary" href="/quiz"> Quiz</a>
+<a class="btn btn-outline-dark" href="/users/logout"> Logout</a>
+<% if (workouts) { %>
+  <hr>
+  <h5>Your last workout was <%= Math.round((Date.now() - workouts[0].date)/ (1000 * 3600 * 24)) %> days ago.</h5>
+<% } %>
+<% for(let i = 0; i < workouts.length; i++) { %>
+  <div class="card">
+    <div class="card-header">
+      <h5><%= workouts[i].date.toDateString() %></h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <p>Types of exercises</p>
+        </div>
+        <div class="col">
+          <ul class="exerciseType">
+            <%= workouts[i].exerciseType %>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>Intensity</p>
+        </div>
+        <div class="col">
+          <%= workouts[i].intensity %>
+        </div>
+      </div>      
+    </div>
+  </div>
+<% } %>
+
+</div>
+
+<script>
+  var exerciseTypes = document.querySelectorAll(".exerciseType");
+  for (var i = 0; i < exerciseTypes.length; i++) {
+    var exerciseBits = Number(exerciseTypes[i].innerHTML);
+    var innerHTML = "";
+    if (exerciseBits & 1) innerHTML = "<li>Shoulders</li>";
+    if (exerciseBits & 2) innerHTML += "<li>Back</li>";
+    if (exerciseBits & 4) innerHTML += "<li>Biceps</li>";
+    exerciseTypes[i].innerHTML = innerHTML;
+  }
+
+</script>
