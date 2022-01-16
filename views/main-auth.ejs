@@ -4,7 +4,7 @@
 <p></p>
 <a class="btn btn-outline-primary" href="/quiz"> Quiz</a>
 <a class="btn btn-outline-dark" href="/users/logout"> Logout</a>
-<% if (workouts) { %>
+<% if (workouts.length != 0) { %>
   <hr>
   <h5>Your last workout was <%= Math.round((Date.now() - workouts[0].date)/ (1000 * 3600 * 24)) %> days ago.</h5>
 <% } %>
