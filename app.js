@@ -13,7 +13,7 @@ require('./config/passport')(passport)
 const uri = 'mongodb+srv://musclebuddy:stronk@cluster0.cemal.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 //mongoose.connect('mongodb://localhost/test',{useNewUrlParser: true, useUnifiedTopology : true})
 mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology : true})
-.then(() => console.log('connected,,'))
+.then(() => console.log('connected...'))
 .catch((err)=> console.log(err));
 
 //EJS
@@ -44,4 +44,5 @@ app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/users'));
 app.use('/workout',require('./routes/workout'));
 
-app.listen(3000); 
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number); 
