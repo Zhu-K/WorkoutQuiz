@@ -44,5 +44,5 @@ app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/users'));
 app.use('/workout',require('./routes/workout'));
 
-var port_number = process.env.PORT || 80; //server.listen(process.env.PORT || 3000);
+var port_number = process.env.PORT || 3000; //server.listen(process.env.PORT || 3000);
 app.listen(port_number); 

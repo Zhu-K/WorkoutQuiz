@@ -17,6 +17,11 @@ ul {
     padding: 0 1rem;
 }
 
+.logo {
+    margin-bottom: 2rem;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
 .main-div {
     background-color: #F7F7EE;
     border-radius: 1rem;
