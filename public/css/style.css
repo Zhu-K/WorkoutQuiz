@@ -1,16 +1,17 @@
 body {
     background-color: #17706E;
     color: #555;
-    font-family: 'Merriweather', serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
     color: #FB7813;
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 h5 {
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
 }
 
 ul {
@@ -19,7 +20,7 @@ ul {
 
 .logo {
     margin-bottom: 2rem;
-    font-family: 'Ubuntu Condensed', sans-serif;
+    /* font-family: 'Ubuntu Condensed', sans-serif; */
 }
 
 .main-div {
@@ -53,6 +54,6 @@ ul {
     margin: 0;
 }
 
-.btn, a {
+/* .btn, a {
     font-family: 'Montserrat', sans-serif;
-}
+} */
